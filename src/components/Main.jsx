@@ -11,9 +11,11 @@ function Main() {
     return (
         <section>
             <h1>I film del momento</h1>
-            {isLoading ? (<Loader />) : (movies.map(movie => {
-                return <article key={movie.id}><CardMovie movie={movie} /></article>
-            }))}
+            <div className="container d-flex overflow-x-auto gap-3 py-3">
+                {isLoading ? (<Loader />) : (movies.map(movie => {
+                    return <article key={movie.id}><CardMovie movie={movie} /></article>
+                }))}
+            </div>
         </section>
     )
 }

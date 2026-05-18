@@ -1,27 +1,21 @@
 import { useState } from "react";
 
-function SearchBar() {
-
-    const [movieSearchTitle, setMovieSearchTitle] = useState('');
+function SearchBar({ onSearch }) {
+    const [movieSearchTitle, setMovieSearchTitle] = useState("");
 
     const handleSearchChange = event => {
-        const { value } = event.target;
-
-        setMovieSearchTitle(value);
-    }
+        setMovieSearchTitle(event.target.value);
+    };
 
     const handleMovieSearch = event => {
-        event.preventDefault()
-        console.log('sto cercando il film', movieSearchTitle);
-
-    }
+        event.preventDefault();
+    };
 
     return (
         <div className="container">
             <form onSubmit={handleMovieSearch}>
-                <label
-                    htmlFor="titoloFilm"
-                    className="form-label"> Ricerca il titolo del film
+                <label htmlFor="titoloFilm" className="form-label">
+                    Ricerca il titolo del film
                 </label>
 
                 <input
@@ -29,15 +23,15 @@ function SearchBar() {
                     id="titoloFilm"
                     className="form-control"
                     value={movieSearchTitle}
-                    onChange={handleSearchChange} />
+                    onChange={handleSearchChange}
+                />
 
-                <button
-                    className="btn btn-secondary"
-                    type="submit"
-                > Ricerca
+                <button className="btn btn-secondary" type="submit">
+                    Ricerca
                 </button>
             </form>
         </div>
-    )
+    );
 }
-export default SearchBar
+
+export default SearchBar;

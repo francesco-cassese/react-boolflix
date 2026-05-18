@@ -6,6 +6,9 @@ const languageToCountry = {
     de: "de",
     ja: "jp",
     ko: "kr",
+    ru: "ru",
+    th: "th",
+    tl: "tl"
 };
 
 function langToCountry(language) {

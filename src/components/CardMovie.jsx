@@ -1,4 +1,5 @@
-import langToCountry from "../utils/languageMap"
+import langToCountry from "../utils/languageMap";
+import styles from "./CardMovie.module.css";
 
 function CardMovie({ movie }) {
 
@@ -15,6 +16,7 @@ function CardMovie({ movie }) {
             {country ? (<img
                 src={`https://flagcdn.com/${country}.svg`}
                 alt={movie.originalLanguage}
+                className={styles.countryFlag}
             />) : (
                 <span>🌐</span>
             )

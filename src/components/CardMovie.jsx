@@ -18,7 +18,7 @@ function CardMovie({ movie }) {
                 alt={movie.originalLanguage}
                 className={styles.countryFlag}
             />) : (
-                <span>🌐</span>
+                <span>🌐{movie.originalLanguage}</span>
             )
             }
             <span>{movie.rating}</span>

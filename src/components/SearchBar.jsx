@@ -1,20 +1,30 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { MovieContext } from "../contexts/MovieContext";
 
-function SearchBar({ onSearch }) {
+function SearchBar() {
     const [movieSearchTitle, setMovieSearchTitle] = useState("");
 
-    const handleSearchChange = event => {
-        setMovieSearchTitle(event.target.value);
+    const { setQuery } = useContext(MovieContext);
+
+    const handleSearchChange = (event) => {
+        const { value } = event.target;
+
+        setMovieSearchTitle(value);
     };
 
-    const handleMovieSearch = event => {
+    const handleMovieSearch = (event) => {
         event.preventDefault();
+
+        setQuery(movieSearchTitle);
     };
 
     return (
         <div className="container">
             <form onSubmit={handleMovieSearch}>
-                <label htmlFor="titoloFilm" className="form-label">
+                <label
+                    htmlFor="titoloFilm"
+                    className="form-label"
+                >
                     Ricerca il titolo del film
                 </label>
 
@@ -26,7 +36,10 @@ function SearchBar({ onSearch }) {
                     onChange={handleSearchChange}
                 />
 
-                <button className="btn btn-secondary" type="submit">
+                <button
+                    className="btn btn-secondary"
+                    type="submit"
+                >
                     Ricerca
                 </button>
             </form>

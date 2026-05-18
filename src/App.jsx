@@ -1,11 +1,15 @@
 import Header from "./components/Header";
 import Main from "./components/Main";
+import { MovieProvider } from "./contexts/MovieContext";
 
 function App() {
+
   return (
     <>
-      <Header />
-      <Main />
+      <MovieProvider>
+        <Header />
+        <Main />
+      </MovieProvider>
     </>
   );
 }

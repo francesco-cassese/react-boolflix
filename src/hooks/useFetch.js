@@ -8,8 +8,20 @@ function useFetch(url) {
     const [error, setError] = useState('')
 
     useEffect(() => {
+
+        const tokenV4 = import.meta.env.VITE_TMDB_API_KEY;
+
+        const options = {
+            method: 'GET',
+            headers: {
+                accept: 'application/json',
+                Authorization: `Bearer ${tokenV4}`
+            }
+        };
+
         setIsLoading(true);
-        fetch(url)
+
+        fetch(url, options)
             .then(response => {
                 if (!response.ok) {
                     throw new Error(`Errore HTTP! Stato: ${response.status}`)

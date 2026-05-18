@@ -9,7 +9,11 @@ const languageToCountry = {
 };
 
 function langToCountry(language) {
-    return languageToCountry[language.toLowerCase()] || null;
+    if (!language) return null;
+
+    const code = language.toLowerCase();
+
+    return languageToCountry[code] || null;
 }
 
 export default langToCountry;

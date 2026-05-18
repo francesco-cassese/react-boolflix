@@ -1,7 +1,7 @@
 import useFetch from "./useFetch";
 import CardMovie from "../components/CardMovie";
 
-const API_URL_POPULAR = 'https://api.themoviedb.org/3/movie/popular'
+const API_URL_POPULAR = 'https://api.themoviedb.org/3/movie/popular?language=it-IT'
 
 function usePopularMovies() {
 

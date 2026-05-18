@@ -1,4 +1,9 @@
+import langToCountry from "../utils/languageMap"
+
 function CardMovie({ movie }) {
+
+    const country = langToCountry(movie.originalLanguage);
+
     return (
         <div className="card h-100">
             <h1>{movie.title}</h1>
@@ -7,9 +12,15 @@ function CardMovie({ movie }) {
                 alt={movie.title}
             />
             <h2>{movie.originalTitle}</h2>
-            <span>{movie.originalLanguage}</span>
+            {country ? (<img
+                src={`https://flagcdn.com/${country}.svg`}
+                alt={movie.originalLanguage}
+            />) : (
+                <span>🌐</span>
+            )
+            }
             <span>{movie.rating}</span>
-        </div>
+        </div >
     )
 }
 export default CardMovie

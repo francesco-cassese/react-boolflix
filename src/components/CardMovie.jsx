@@ -1,9 +1,9 @@
 function CardMovie({ movie }) {
     return (
-        <div className="card">
+        <div className="card h-100">
             <h1>{movie.title}</h1>
             <img
-                src={`https://image.tmdb.org/t/p/w500${movie.poster}`}
+                src={`https://image.tmdb.org/t/p/w342${movie.poster}`}
                 alt={movie.title}
             />
             <h2>{movie.originalTitle}</h2>

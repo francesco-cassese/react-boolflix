@@ -30,7 +30,7 @@ function useFetch(url) {
             })
             .then(json => {
                 console.log('Dati ricevuti con successo', json);
-                setData(json);
+                setData(json.results);
             })
             .catch(error => {
                 setError(error.message || "Si è verificato un errore imprevisto.");

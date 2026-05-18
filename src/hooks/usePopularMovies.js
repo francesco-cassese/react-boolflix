@@ -7,7 +7,7 @@ function usePopularMovies() {
 
     const { data, error, isLoading } = useFetch(API_URL_POPULAR)
 
-    const movies = data?.results?.map(movie => ({
+    const movies = data.map(movie => ({
         id: movie.id,
         title: movie.title,
         originalTitle: movie.original_title,

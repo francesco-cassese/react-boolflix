@@ -4,6 +4,7 @@ import useSearchMovies from "../hooks/useSearchMovies";
 import usePopularMovies from "../hooks/usePopularMovies";
 import Loader from "./Loader";
 import MovieRow from "./MovieRow";
+import styles from "./Main.module.css"
 
 
 function Main() {
@@ -24,18 +25,20 @@ function Main() {
     }
 
     return (
-        <section className="container py-3">
-            <h1 className="text-white mb-4">
-                {query ? "Risultati ricerca" : "Home"}
-            </h1>
+        <section className={`py-3 ${styles.containerMovies}`}>
+            <div className="container">
+                <h1 className="text-white mb-4">
+                    {query ? "Risultati ricerca" : "Home"}
+                </h1>
 
-            {query ? (
-                <MovieRow title="Risultati ricerca" movies={searchMovies} />
-            ) : (
-                <>
-                    <MovieRow title="Popolari" movies={popularMovies} />
-                </>
-            )}
+                {query ? (
+                    <MovieRow title="" movies={searchMovies} />
+                ) : (
+                    <>
+                        <MovieRow title="Film Popolari" movies={popularMovies} />
+                    </>
+                )}
+            </div>
         </section>
     );
 }

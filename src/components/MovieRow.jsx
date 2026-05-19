@@ -1,6 +1,6 @@
 import CardMovie from "./CardMovie";
 
-function MovieRow({ title, movies }) {
+function MovieRow({ title = "", movies }) {
     return (
         <section className="mb-4">
             <h2 className="text-white mb-2">{title}</h2>

@@ -3,6 +3,7 @@ import { MovieContext } from "../contexts/MovieContext";
 import useSearchMovies from "../hooks/useSearchMovies";
 import usePopularMovies from "../hooks/usePopularMovies";
 import useTrendingMovies from "../hooks/useTrendingMovies";
+import usePopularTv from "../hooks/usePopularTv";
 import Loader from "./Loader";
 import MovieRow from "./MovieRow";
 import styles from "./Main.module.css"
@@ -16,7 +17,8 @@ function Main() {
     const { searchMovies, isSearchingLoading, searchError } = useSearchMovies(query);
     const { popularMovies, isPopularLoading, popularError } = usePopularMovies();
     const { trendingMovies, isTrendingLoading, trendingError } = useTrendingMovies();
-    const { newMovies, isNewLoading, newError } = useNewMovies()
+    const { newMovies, isNewLoading, newError } = useNewMovies();
+    const { popularTv, isPopularTvLoading, popularTvError } = usePopularTv()
 
     const isLoading = isSearchingLoading || isPopularLoading || isTrendingLoading;
     const isError = searchError || popularError || trendingError;
@@ -53,20 +55,27 @@ function Main() {
                 ) : (
                     <>
                         <MovieRow
-                            title="Consigliati dalla critica"
+                            title="Trending Now"
                             movies={trendingMovies}
                             variant="compact" />
 
-
                         <MovieRow
-                            title="I più visti"
+                            title="Popolar Movies"
                             movies={popularMovies}
                             variant="compact" />
 
                         <MovieRow
-                            title="Novità"
+                            title="Popolar Tv Series"
+                            movies={popularTv}
+                            variant="compact" />
+
+                        <MovieRow
+                            title="New Releases"
                             movies={newMovies}
                             variant="compact" />
+
+
+
                     </>
                 )}
             </div>

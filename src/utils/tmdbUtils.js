@@ -56,6 +56,15 @@ const getPopularMovies = () => {
         });
 };
 
+const getPopularTv = () => {
+    return fetchTmdb('/tv/popular')
+        .then(data => {
+            const results = data.results ?? [];
+            return results.map(item => mapMediaItem(item, "tv"));
+        });
+};
+
+
 const getTrendingMovies = () => {
     return fetchTmdb('/trending/all/week')
         .then(data => {
@@ -68,7 +77,7 @@ const getNewMovies = () => {
     return fetchTmdb('/movie/now_playing')
         .then(data => {
             const results = data.results ?? [];
-            return results.map(item => mapMediaItem(item, "movie"))
+            return results.map(item => mapMediaItem(item, 'movie'))
         })
 }
 
@@ -91,4 +100,4 @@ const searchMoviesAndTv = query => {
         });
 };
 
-export { searchMoviesAndTv, getPopularMovies, getTrendingMovies, getNewMovies };
+export { searchMoviesAndTv, getPopularMovies, getTrendingMovies, getNewMovies, getPopularTv };

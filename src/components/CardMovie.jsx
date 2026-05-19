@@ -21,7 +21,7 @@ function CardMovie({ movie, variant = "full" }) {
     }
 
     return (
-        <div className="card position-relative h-100">
+        <div className={`card position-relative h-100 ${styles.card}`} >
             <span className={`badge position-absolute top-0 end-0 ${movie.type === 'movie' ? 'bg-success' : 'bg-danger'}`}>{movie.type}</span>
             <img
                 src={

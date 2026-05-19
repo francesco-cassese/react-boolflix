@@ -1,22 +1,17 @@
 import langToCountry from "../utils/languageMap";
 import styles from "./CardMovie.module.css";
 import { BsStarFill, BsStarHalf, BsStar } from "react-icons/bs";
-import { useState } from "react";
 
-function CardMovie({ movie, variant = "full" }) {
-
-    const [open, setOpen] = useState(false);
+function CardMovie({ movie, variant = "full", isOpen, onOpen }) {
 
     const isHome = variant === "home"
     const isSearch = variant === "search"
 
     function handleClick() {
-        if (isSearch) {
-            setOpen(!open);
+        if (variant === "search") {
+            onOpen();
         }
     }
-
-
 
     const country = langToCountry(movie.originalLanguage);
 
@@ -34,7 +29,7 @@ function CardMovie({ movie, variant = "full" }) {
     }
 
     return (
-        <div className={`card position-relative h-100 mt-5  ${styles.card} ${open ? styles.open : ""}`} onClick={handleClick} >
+        <div className={`card position-relative h-100 mt-5  ${styles.card} ${isOpen ? styles.open : ""}`} onClick={handleClick} >
             <span className={`badge position-absolute top-0 end-0 ${movie.type === 'movie' ? 'bg-success' : 'bg-danger'}`}>{movie.type}</span>
             <img
                 src={
@@ -60,7 +55,7 @@ function CardMovie({ movie, variant = "full" }) {
                     <h6 className={styles.cardTitle}>{movie.originalTitle}</h6>
                 </div>
             )}
-            {isSearch && open && (
+            {isSearch && isOpen && (
                 <div className={styles.info}>
 
                     <p className={styles.row}>

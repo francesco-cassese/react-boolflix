@@ -1,7 +1,11 @@
 import CardMovie from "./CardMovie";
 import style from "./MovieRow.module.css";
+import { useState } from "react";
 
 function MovieRow({ title = "", movies, variant = "full" }) {
+
+    const [openId, setOpenId] = useState(null);
+
     return (
         <section className="mb-4">
             <h2 className="text-white mb-2">{title}</h2>
@@ -10,7 +14,12 @@ function MovieRow({ title = "", movies, variant = "full" }) {
 
                 {movies?.map(movie => (
                     <div key={movie.id}>
-                        <CardMovie movie={movie} variant={variant} />
+                        <CardMovie
+                            movie={movie}
+                            variant={variant}
+                            isOpen={openId === movie.id}
+                            onOpen={() => setOpenId(movie.id)}
+                        />
                     </div>
                 ))}
 

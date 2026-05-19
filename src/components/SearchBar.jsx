@@ -1,5 +1,7 @@
 import { useState, useContext } from "react";
 import { MovieContext } from "../contexts/MovieContext";
+import { BsSearch } from 'react-icons/bs';
+import styles from "./Header.module.css"
 
 function SearchBar() {
     const [movieSearchTitle, setMovieSearchTitle] = useState("");
@@ -19,29 +21,39 @@ function SearchBar() {
     };
 
     return (
-        <div className="container">
+        <div className="container mt-4">
             <form onSubmit={handleMovieSearch}>
-                <label
-                    htmlFor="titoloFilm"
-                    className="form-label"
-                >
-                    Ricerca il titolo del film
-                </label>
+                <div className={`input-group align-items-center ${styles.searchBox}`}>
+                    <label
+                        htmlFor="titoloFilm"
+                        className="form-label visually-hidden"
+                    >
+                        Ricerca il titolo del film
+                    </label>
 
-                <input
-                    type="text"
-                    id="titoloFilm"
-                    className="form-control"
-                    value={movieSearchTitle}
-                    onChange={handleSearchChange}
-                />
+                    <span className="input-group-text bg-transparent border-0 text-dark pe-2" id="search-addon">
+                        <BsSearch size={18} />
+                    </span>
 
-                <button
-                    className="btn btn-secondary"
-                    type="submit"
-                >
-                    Ricerca
-                </button>
+                    <input
+                        type="text"
+                        id="titoloFilm"
+                        className="form-control bg-transparent border-0 text-dark shadow-none ps-0"
+                        placeholder="Inserisci il titolo da cercare..."
+                        value={movieSearchTitle}
+                        onChange={handleSearchChange}
+                        aria-label="Cerca un film"
+                        aria-describedby="search-addon"
+                    />
+
+
+                    <button
+                        className="btn btn-secondary"
+                        type="submit"
+                    >
+                        Ricerca
+                    </button>
+                </div>
             </form>
         </div>
     );

@@ -1,0 +1,17 @@
+.headerLogo {
+    width: 300px;
+}
+
+.searchBox {
+    background-color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 4px;
+    max-width: 320px;
+    padding: 2px 8px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-box .form-control::placeholder {
+    color: #808080;
+    font-size: 0.9rem;
+}

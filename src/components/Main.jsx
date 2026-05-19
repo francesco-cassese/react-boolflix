@@ -14,6 +14,9 @@ function Main() {
 
     const moviesToShow = query ? searchMovies : popularMovies;
 
+    console.log(popularMovies);
+
+
     if (searchError || popularError) {
         return <p>Si è verificato un errore!</p>;
     }

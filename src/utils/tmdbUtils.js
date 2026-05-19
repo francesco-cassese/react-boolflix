@@ -23,7 +23,7 @@ const fetchTmdb = (endpoint, params) => {
             if (!response.ok) {
                 throw new Error(`Errore HTTP! Stato della risposta: ${response.status}`);
             }
-            return response.json();
+            return response.json();;
         })
         .catch(error => {
             console.error(`Errore durante la chiamata TMDB all'endpoint [${endpoint}]:`, error);
@@ -38,6 +38,7 @@ const getTmdbImage = (path, size = 'original') => {
 const mapMediaItem = (item, mediaType) => {
     return {
         id: item.id,
+        adult: item.adult,
         title: item.title || item.name,
         originalTitle: item.original_title || item.original_name,
         poster: item.poster_path,

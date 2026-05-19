@@ -64,6 +64,14 @@ const getTrendingMovies = () => {
         })
 }
 
+const getNewMovies = () => {
+    return fetchTmdb('/movie/now_playing')
+        .then(data => {
+            const results = data.results ?? [];
+            return results.map(item => mapMediaItem(item, "movie"))
+        })
+}
+
 const searchMoviesAndTv = query => {
     const moviesPromise = fetchTmdb('/search/movie', { query })
         .then(data => {
@@ -83,4 +91,4 @@ const searchMoviesAndTv = query => {
         });
 };
 
-export { searchMoviesAndTv, getPopularMovies, getTrendingMovies };
+export { searchMoviesAndTv, getPopularMovies, getTrendingMovies, getNewMovies };

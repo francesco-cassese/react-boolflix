@@ -7,6 +7,7 @@ import Loader from "./Loader";
 import MovieRow from "./MovieRow";
 import styles from "./Main.module.css"
 import CardMovie from "./CardMovie";
+import useNewMovies from "../hooks/useNewMovies";
 
 
 function Main() {
@@ -15,6 +16,7 @@ function Main() {
     const { searchMovies, isSearchingLoading, searchError } = useSearchMovies(query);
     const { popularMovies, isPopularLoading, popularError } = usePopularMovies();
     const { trendingMovies, isTrendingLoading, trendingError } = useTrendingMovies();
+    const { newMovies, isNewLoading, newError } = useNewMovies()
 
     const isLoading = isSearchingLoading || isPopularLoading || isTrendingLoading;
     const isError = searchError || popularError || trendingError;
@@ -51,7 +53,7 @@ function Main() {
                 ) : (
                     <>
                         <MovieRow
-                            title="Trend del momento"
+                            title="Consigliati dalla critica"
                             movies={trendingMovies}
                             variant="compact" />
 
@@ -59,6 +61,11 @@ function Main() {
                         <MovieRow
                             title="I più visti"
                             movies={popularMovies}
+                            variant="compact" />
+
+                        <MovieRow
+                            title="Novità"
+                            movies={newMovies}
                             variant="compact" />
                     </>
                 )}

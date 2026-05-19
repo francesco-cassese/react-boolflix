@@ -6,6 +6,7 @@ import useTrendingMovies from "../hooks/useTrendingMovies";
 import Loader from "./Loader";
 import MovieRow from "./MovieRow";
 import styles from "./Main.module.css"
+import CardMovie from "./CardMovie";
 
 
 function Main() {
@@ -34,10 +35,19 @@ function Main() {
                 </h1>
 
                 {query ? (
-                    <MovieRow
-                        title=""
-                        movies={searchMovies}
-                        variant="full" />
+                    <div className="row g-3">
+                        {searchMovies?.map(movie => (
+                            <div
+                                key={movie.id}
+                                className="col-6 col-md-4 col-lg-3 col-xl-2"
+                            >
+                                <CardMovie
+                                    movie={movie}
+                                    variant="full"
+                                />
+                            </div>
+                        ))}
+                    </div>
                 ) : (
                     <>
                         <MovieRow

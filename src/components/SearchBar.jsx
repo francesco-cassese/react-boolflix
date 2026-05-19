@@ -48,7 +48,7 @@ function SearchBar() {
 
 
                     <button
-                        className="btn btn-secondary"
+                        className="btn btn-primary bg-danger"
                         type="submit"
                     >
                         Ricerca

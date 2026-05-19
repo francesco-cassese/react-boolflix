@@ -5,7 +5,7 @@ import { useState, useEffect } from "react"
 function useFetch(url) {
     const [data, setData] = useState([])
     const [isLoading, setIsLoading] = useState(true)
-    const [error, setError] = useState('')
+    const [error, setError] = useState(null)
 
     useEffect(() => {
 
@@ -30,7 +30,7 @@ function useFetch(url) {
             })
             .then(json => {
                 console.log('Dati ricevuti con successo', json);
-                setData(json.results);
+                setData(json);
             })
             .catch(error => {
                 setError(error.message || "Si è verificato un errore imprevisto.");

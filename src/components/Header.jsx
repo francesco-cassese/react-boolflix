@@ -4,7 +4,7 @@ import styles from "./Header.module.css";
 function Header() {
 
     return (
-        <header className={`d-flex justify-content-between align-items-center ${styles.containerHeader} `}>
+        <header className={`d-flex justify-content-between align-items-center p-3 ${styles.containerHeader} `}>
             <img src="/boolflix.png" alt="logo" className={styles.headerLogo} />
             <SearchBar />
         </header>

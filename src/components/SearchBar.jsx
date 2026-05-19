@@ -21,7 +21,7 @@ function SearchBar() {
     };
 
     return (
-        <div className="mt-4 me-5">
+        <div className="me-5">
             <form onSubmit={handleMovieSearch}>
                 <div className={`input-group align-items-center ${styles.searchBox}`}>
                     <label

@@ -17,7 +17,7 @@
     border: none;
 }
 
-.card:hover {
+.card:hover:not(.open) {
     transform: scale(1.03);
 }
 
@@ -33,4 +33,46 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.info {
+    position: absolute;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.92);
+
+    color: white;
+
+    padding: 12px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    overflow-y: auto;
+
+    z-index: 10;
+}
+
+.open {
+    position: fixed !important;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.1);
+    width: 400px;
+    height: 600px;
+    z-index: 100;
+    max-height: none;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+    transition: all 0.3s ease;
+}
+
+.open .cardImg {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: all 0.2s ease;
+}
+
+.open .badge {
+    opacity: 0;
 }

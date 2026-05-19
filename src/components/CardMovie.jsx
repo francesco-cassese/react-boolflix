@@ -34,7 +34,7 @@ function CardMovie({ movie, variant = "full" }) {
     }
 
     return (
-        <div className={`card position-relative h-100 mt-5  ${styles.card}`} onClick={handleClick} >
+        <div className={`card position-relative h-100 mt-5  ${styles.card} ${open ? styles.open : ""}`} onClick={handleClick} >
             <span className={`badge position-absolute top-0 end-0 ${movie.type === 'movie' ? 'bg-success' : 'bg-danger'}`}>{movie.type}</span>
             <img
                 src={
@@ -62,15 +62,37 @@ function CardMovie({ movie, variant = "full" }) {
             )}
             {isSearch && open && (
                 <div className={styles.info}>
-                    <div className="d-flex gap-1 fs-4 text-warning mt-2 ">
-                        <div className="d-flex gap-1 fs-4 mt-2">
-                            {stars(movie.rating ?? 0).map((type, i) => {
-                                if (type === "full") return <BsStarFill key={i} color="gold" />;
-                                if (type === "half") return <BsStarHalf key={i} color="gold" />;
-                                return <BsStar key={i} color="gold" />;
-                            })}
-                        </div>
+
+                    <p>
+                        <strong>Titolo:</strong> {movie.title}
+                    </p>
+
+                    <p>
+                        <strong>Titolo originale:</strong> {movie.originalTitle}
+                    </p>
+
+                    <div className="d-flex gap-1 text-warning">
+                        {stars(movie.rating ?? 0).map((type, i) => {
+                            if (type === "full") return <BsStarFill key={i} color="gold" />;
+                            if (type === "half") return <BsStarHalf key={i} color="gold" />;
+                            return <BsStar key={i} color="gold" />;
+                        })}
                     </div>
+
+                    <div className={styles.languageInfo}>
+                        <strong>Lingua:</strong>
+
+                        {country ? (
+                            <img
+                                src={`https://flagcdn.com/${country}.svg`}
+                                alt={movie.originalLanguage}
+                                className={styles.countryFlag}
+                            />
+                        ) : (
+                            <span>🌐 {movie.originalLanguage}</span>
+                        )}
+                    </div>
+
                 </div>
             )}
         </div>

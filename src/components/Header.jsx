@@ -4,6 +4,7 @@ function Header() {
 
     return (
         <header>
+            <img src="/boolflix.png" alt="logo" />
             <SearchBar />
         </header>
     );

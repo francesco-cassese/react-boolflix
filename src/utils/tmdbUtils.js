@@ -57,10 +57,10 @@ const getPopularMovies = () => {
 };
 
 const getTrendingMovies = () => {
-    return fetchTmdb('/trending/movie/week')
+    return fetchTmdb('/trending/all/week')
         .then(data => {
             const results = data.results ?? [];
-            return results.map(item => mapMediaItem(item, "movie"))
+            return results.map(item => mapMediaItem(item, item.media_type))
         })
 }
 

@@ -21,8 +21,8 @@ function useSearchMovies(query) {
             },
         };
 
-        const urlMovies = `https://api.themoviedb.org/3/search/movie?query=${encodeURIComponent(query)}`;
-        const urlTv = `https://api.themoviedb.org/3/search/tv?query=${encodeURIComponent(query)}`;
+        const urlMovies = `https://api.themoviedb.org/3/search/movie?query=${encodeURIComponent(query)}&language=it-IT`;
+        const urlTv = `https://api.themoviedb.org/3/search/tv?query=${encodeURIComponent(query)}&language=it-IT`;
 
         setIsLoading(true);
         setError(null);

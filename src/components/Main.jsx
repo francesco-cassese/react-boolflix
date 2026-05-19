@@ -6,7 +6,6 @@ import Loader from "./Loader";
 import useFetch from "../hooks/useFetch";
 import useTrendingMovies from "../hooks/useTrendingMovies";
 
-const URL_TRENDING_MOVIE = 'https://api.themoviedb.org/3/trending/movie/week'
 
 function Main() {
     const { query } = useContext(MovieContext);

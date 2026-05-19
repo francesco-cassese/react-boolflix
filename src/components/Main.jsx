@@ -40,7 +40,7 @@ function Main() {
     return (
         <section className={`py-3 ${styles.containerMovies}`}>
             <div className="container">
-                <h1 className="text-white mb-4">
+                <h1 className={`text-white mb-4 ${styles.pricipalTitle}`}>
                     {query ? "Risultati ricerca" : "Home"}
                 </h1>
 

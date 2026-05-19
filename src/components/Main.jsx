@@ -26,16 +26,18 @@ function Main() {
             <h1>
                 {query ? "Film trovati" : "Film popolari"}
             </h1>
-            <div className="container d-flex overflow-x-auto gap-3 py-3">
-                {isSearchingLoading || isPopularLoading ? (
-                    <Loader />
-                ) : (
-                    moviesToShow?.map(item => (
-                        <article key={item.id}>
-                            <CardMovie movie={item} />
-                        </article>
-                    ))
-                )}
+            <div className="container py-3">
+                <div className="d-flex overflow-x-auto gap-3">
+                    {isSearchingLoading || isPopularLoading ? (
+                        <Loader />
+                    ) : (
+                        moviesToShow?.map(item => (
+                            <article key={item.id}>
+                                <CardMovie movie={item} />
+                            </article>
+                        ))
+                    )}
+                </div>
             </div>
         </section>
     );

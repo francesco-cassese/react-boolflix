@@ -4,7 +4,7 @@ import styles from "./MovieRow.module.css";
 function MovieRow({ title = "", movies, variant = "full" }) {
 
     return (
-        <section className="mb-4">
+        <section className="mb-4 mt-2">
             <h2 className={styles.titleSection}>{title}</h2>
 
             <div className={`d-flex overflow-x-auto gap-2 pb-2 ${styles.rowP} `}>

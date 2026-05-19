@@ -10,7 +10,7 @@ function Header() {
                     <div className="col-12 col-md-6">
                         <img src="/boolflix.png" alt="logo" className={styles.headerLogo} />
                     </div>
-                    <div className="col-12 col-md-4">
+                    <div className="col-12 col-md-6 col-lg-4">
                         <SearchBar />
                     </div>
                 </div>

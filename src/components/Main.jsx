@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import { MovieContext } from "../contexts/MovieContext";
 import useSearchMovies from "../hooks/useSearchMovies";
-import CardMovie from "./CardMovie";
-import Loader from "./Loader";
 import usePopularMovies from "../hooks/usePopularMovies";
+import Loader from "./Loader";
+import MovieRow from "./MovieRow";
 
 
 function Main() {
@@ -12,33 +12,30 @@ function Main() {
     const { searchMovies, isSearchingLoading, searchError } = useSearchMovies(query);
     const { popularMovies, isPopularLoading, popularError } = usePopularMovies();
 
-    const moviesToShow = query ? searchMovies : popularMovies;
+    const isLoading = isSearchingLoading || isPopularLoading;
+    const isError = searchError || popularError;
 
-    console.log(popularMovies);
+    if (isError) {
+        return <p className="text-danger container py-3">Errore!</p>;
+    }
 
-
-    if (searchError || popularError) {
-        return <p>Si è verificato un errore!</p>;
+    if (isLoading) {
+        return <Loader />;
     }
 
     return (
-        <section>
-            <h1>
-                {query ? "Film trovati" : "Film popolari"}
+        <section className="container py-3">
+            <h1 className="text-white mb-4">
+                {query ? "Risultati ricerca" : "Home"}
             </h1>
-            <div className="container py-3">
-                <div className="d-flex overflow-x-auto gap-3">
-                    {isSearchingLoading || isPopularLoading ? (
-                        <Loader />
-                    ) : (
-                        moviesToShow?.map(item => (
-                            <article key={item.id}>
-                                <CardMovie movie={item} />
-                            </article>
-                        ))
-                    )}
-                </div>
-            </div>
+
+            {query ? (
+                <MovieRow title="Risultati ricerca" movies={searchMovies} />
+            ) : (
+                <>
+                    <MovieRow title="Popolari" movies={popularMovies} />
+                </>
+            )}
         </section>
     );
 }

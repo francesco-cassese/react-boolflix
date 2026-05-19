@@ -4,10 +4,18 @@ import styles from "./Header.module.css";
 function Header() {
 
     return (
-        <header className={`d-flex justify-content-between align-items-center p-3 ${styles.containerHeader} `}>
-            <img src="/boolflix.png" alt="logo" className={styles.headerLogo} />
-            <SearchBar />
-        </header>
+        <header className={`d-flex p-3 ${styles.containerHeader}`}>
+            <div className="container">
+                <div className='row align-items-center justify-content-between'>
+                    <div className="col-12 col-md-6">
+                        <img src="/boolflix.png" alt="logo" className={styles.headerLogo} />
+                    </div>
+                    <div className="col-12 col-md-4">
+                        <SearchBar />
+                    </div>
+                </div>
+            </div>
+        </header >
     );
 }
 

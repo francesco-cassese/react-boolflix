@@ -49,7 +49,7 @@ function Main() {
                         {searchMovies?.map(movie => (
                             <div
                                 key={movie.id}
-                                className="col-6 col-md-4 col-lg-3 col-xl-2"
+                                className="col-12 col-md-4 col-lg-3 col-xl-2"
                             >
                                 <CardMovie
                                     movie={movie}

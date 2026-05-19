@@ -3,6 +3,7 @@ const URL_TMBD = 'https://api.themoviedb.org/3'
 
 const fetchTmdb = (endpoint, params) => {
     const urlParameters = new URLSearchParams({
+        adults: false,
         language: 'it-IT',
         ...params
     })
@@ -29,6 +30,10 @@ const fetchTmdb = (endpoint, params) => {
             throw error;
         });
 }
+
+const getTmdbImage = (path, size = 'original') => {
+    return `https://image.tmdb.org/t/p/${size}${path}`;
+};
 
 const mapMediaItem = (item, mediaType) => {
     return {

@@ -7,6 +7,10 @@
     transition: 0.2s ease;
 }
 
+.searchInput::placeholder {
+    color: rgba(255, 255, 255, 0.45);
+}
+
 .searchBox:focus-within {
     border-color: rgba(255, 255, 255, 0.25);
     background-color: #1f2327;

@@ -10,7 +10,7 @@
     background-color: #141414;
     color: white;
     border: 2px solid black;
-    border-radius: 6px;
+    border-radius: 10px;
     cursor: pointer;
     transition: transform 0.4s ease;
     scroll-snap-align: start;
@@ -40,25 +40,45 @@
     inset: 0;
     background: rgba(0, 0, 0, 0.92);
     color: white;
-    padding: 12px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    overflow-y: auto;
+    gap: 8px;
     z-index: 10;
+    font-size: 0.6rem;
+    line-height: 1.4;
+    padding: 5px;
+}
+
+.row {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.label {
+    font-size: 0.5rem;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.info p:nth-of-type(3) .value {
+    display: -webkit-box;
+    line-clamp: 3;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.info .d-flex {
+    font-size: 0.9rem;
 }
 
 .open {
-    position: fixed !important;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(1.1);
-    width: 400px;
-    height: 600px;
+    transform: scale(1.5);
     z-index: 100;
-    max-height: none;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
-    transition: all 0.3s ease;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
 }
 
 .open .cardImg {
@@ -68,5 +88,9 @@
 }
 
 .open .badge {
+    opacity: 0;
+}
+
+.open .cardTitle {
     opacity: 0;
 }

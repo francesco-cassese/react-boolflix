@@ -63,16 +63,21 @@ function CardMovie({ movie, variant = "full" }) {
             {isSearch && open && (
                 <div className={styles.info}>
 
-                    <p>
-                        <strong>Titolo:</strong> {movie.title}
+                    <p className={styles.row}>
+                        <span className={styles.label}>Titolo:</span>
+                        <span className={styles.value}>{movie.title}</span>
                     </p>
 
-                    <p>
-                        <strong>Titolo originale:</strong> {movie.originalTitle}
+                    <p className={styles.row}>
+                        <span className={styles.label}>Titolo originale:</span>
+                        <span className={styles.value}>{movie.originalTitle}
+                        </span>
                     </p>
 
-                    <p>
-                        <strong>Trama</strong> {movie.overview}
+                    <p className={styles.row}>
+                        <span className={styles.label}>Trama</span>
+                        <span className={styles.value}>{movie.overview}
+                        </span>
                     </p>
 
                     <div className="d-flex gap-1 text-warning">

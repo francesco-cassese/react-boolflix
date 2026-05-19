@@ -38,19 +38,13 @@
 .info {
     position: absolute;
     inset: 0;
-
     background: rgba(0, 0, 0, 0.92);
-
     color: white;
-
     padding: 12px;
-
     display: flex;
     flex-direction: column;
     gap: 10px;
-
     overflow-y: auto;
-
     z-index: 10;
 }
 

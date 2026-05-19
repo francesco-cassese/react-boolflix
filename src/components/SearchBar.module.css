@@ -1,0 +1,32 @@
+.searchBox {
+    background-color: #1A1D20;
+    border-radius: 4px;
+    min-width: 350px;
+    padding: 2px 8px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: 0.2s ease;
+}
+
+.searchBox:focus-within {
+    border-color: rgba(255, 255, 255, 0.25);
+    background-color: #1f2327;
+}
+
+.searchButton {
+    background-color: #e50914;
+    border: none;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 4px;
+    transition: 0.2s ease;
+    font-weight: 500;
+}
+
+.searchButton:hover {
+    background-color: #ff0a16;
+    transform: translateY(-1px);
+}
+
+.searchButton:active {
+    transform: scale(0.98);
+}

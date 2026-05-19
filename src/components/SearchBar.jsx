@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import { MovieContext } from "../contexts/MovieContext";
 import { BsSearch } from 'react-icons/bs';
-import styles from "./Header.module.css"
+import styles from "./SearchBar.module.css"
 
 function SearchBar() {
     const [movieSearchTitle, setMovieSearchTitle] = useState("");
@@ -31,14 +31,14 @@ function SearchBar() {
                         Ricerca il titolo del film
                     </label>
 
-                    <span className="input-group-text bg-transparent border-0 text-dark pe-2" id="search-addon">
+                    <span className="input-group-text bg-transparent border-0 text-white pe-2" id="search-addon">
                         <BsSearch size={18} />
                     </span>
 
                     <input
                         type="text"
                         id="titoloFilm"
-                        className="form-control bg-transparent border-0 text-dark shadow-none ps-0"
+                        className={`form-control bg-transparent border-0 text-dark shadow-none ps-0 text-white ${styles.searchInput}`}
                         placeholder="Inserisci il titolo da cercare..."
                         value={movieSearchTitle}
                         onChange={handleSearchChange}
@@ -48,7 +48,7 @@ function SearchBar() {
 
 
                     <button
-                        className="btn btn-primary bg-danger"
+                        className={styles.searchButton}
                         type="submit"
                     >
                         Ricerca

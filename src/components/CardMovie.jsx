@@ -71,6 +71,10 @@ function CardMovie({ movie, variant = "full" }) {
                         <strong>Titolo originale:</strong> {movie.originalTitle}
                     </p>
 
+                    <p>
+                        <strong>Trama</strong> {movie.overview}
+                    </p>
+
                     <div className="d-flex gap-1 text-warning">
                         {stars(movie.rating ?? 0).map((type, i) => {
                             if (type === "full") return <BsStarFill key={i} color="gold" />;

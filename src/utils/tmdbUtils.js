@@ -44,6 +44,7 @@ const mapMediaItem = (item, mediaType) => {
         poster: item.poster_path,
         rating: item.vote_average,
         originalLanguage: item.original_language,
+        overview: item.overview,
         type: mediaType
     };
 };

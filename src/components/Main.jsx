@@ -32,10 +32,16 @@ function Main() {
                 </h1>
 
                 {query ? (
-                    <MovieRow title="" movies={searchMovies} />
+                    <MovieRow
+                        title=""
+                        movies={searchMovies}
+                        variant="full" />
                 ) : (
                     <>
-                        <MovieRow title="Film Popolari" movies={popularMovies} />
+                        <MovieRow
+                            title="Film Popolari"
+                            movies={popularMovies}
+                            variant="compact" />
                     </>
                 )}
             </div>

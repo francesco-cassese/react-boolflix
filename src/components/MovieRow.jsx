@@ -1,6 +1,6 @@
 import CardMovie from "./CardMovie";
 
-function MovieRow({ title = "", movies }) {
+function MovieRow({ title = "", movies, variant = "full" }) {
     return (
         <section className="mb-4">
             <h2 className="text-white mb-2">{title}</h2>
@@ -9,7 +9,7 @@ function MovieRow({ title = "", movies }) {
 
                 {movies?.map(movie => (
                     <div key={movie.id}>
-                        <CardMovie movie={movie} />
+                        <CardMovie movie={movie} variant={variant} />
                     </div>
                 ))}
 

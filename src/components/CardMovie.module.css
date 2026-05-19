@@ -1,3 +1,21 @@
 .countryFlag {
     width: 30px;
 }
+
+.card {
+    background-color: #141414;
+    color: white;
+    border-radius: 6px;
+}
+
+.card:hover {
+    transform: scale(1.03);
+    transition: 0.2s ease;
+    z-index: 10;
+}
+
+.cardImg {
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}

@@ -4,7 +4,9 @@ import { BsStarFill, BsStarHalf, BsStar } from "react-icons/bs";
 
 function CardMovie({ movie, variant = "full" }) {
 
-    const isCompact = variant === "compact";
+    const isPreview = variant === "compact"
+    const isSearch = variant === "search"
+
     const country = langToCountry(movie.originalLanguage);
 
     function stars(vote = 0) {
@@ -32,32 +34,34 @@ function CardMovie({ movie, variant = "full" }) {
                 alt={movie.title}
                 className={styles.cardImg}
             />
-            {!isCompact && (
-                <div className="card-info">
-                    <h2>{movie.originalTitle}</h2>
-                    <div className="d-flex flex-column">
-                        {
-                            country ? (<img
-                                src={`https://flagcdn.com/${country}.svg`}
-                                alt={movie.originalLanguage}
-                                className={styles.countryFlag}
-                            />) : (
-                                <span>🌐{movie.originalLanguage}</span>
-                            )
-                        }
-                        <div className="d-flex gap-1 fs-4 text-warning mt-2 flex-shrink-0">
-                            <div className="d-flex gap-1 fs-4 mt-2">
-                                {stars(movie.rating ?? 0).map((type, i) => {
-                                    if (type === "full") return <BsStarFill key={i} color="gold" />;
-                                    if (type === "half") return <BsStarHalf key={i} color="gold" />;
-                                    return <BsStar key={i} color="gold" />;
-                                })}
-                            </div>
+            {isSearch && (
+                <div className="card-name">
+                    <h6>{movie.originalTitle}</h6>
+                </div>
+            )}
+            {!isPreview && !isSearch && (
+                <div className="d-flex flex-column">
+                    {
+                        country ? (<img
+                            src={`https://flagcdn.com/${country}.svg`}
+                            alt={movie.originalLanguage}
+                            className={styles.countryFlag}
+                        />) : (
+                            <span>🌐{movie.originalLanguage}</span>
+                        )
+                    }
+                    <div className="d-flex gap-1 fs-4 text-warning mt-2 flex-shrink-0">
+                        <div className="d-flex gap-1 fs-4 mt-2">
+                            {stars(movie.rating ?? 0).map((type, i) => {
+                                if (type === "full") return <BsStarFill key={i} color="gold" />;
+                                if (type === "half") return <BsStarHalf key={i} color="gold" />;
+                                return <BsStar key={i} color="gold" />;
+                            })}
                         </div>
                     </div>
                 </div>
             )}
-        </div >
+        </div>
     )
 }
 export default CardMovie

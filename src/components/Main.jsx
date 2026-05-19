@@ -47,7 +47,7 @@ function Main() {
                             >
                                 <CardMovie
                                     movie={movie}
-                                    variant="full"
+                                    variant="search"
                                 />
                             </div>
                         ))}

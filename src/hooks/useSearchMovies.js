@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import { searchMoviesAndTv } from "../utils/tmdbUtils";
 
 function useSearchMovies(query) {
-    const [movies, setMovies] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
-    const [error, setError] = useState(null);
+    const [searchMovies, setMovies] = useState([]);
+    const [isSearchingLoading, setIsSearchingLoading] = useState(false);
+    const [searchError, setSearchError] = useState(null);
 
     useEffect(() => {
 
@@ -13,23 +13,23 @@ function useSearchMovies(query) {
             return;
         }
 
-        setIsLoading(true);
-        setError(null);
+        setIsSearchingLoading(true);
+        setSearchError(null);
 
         searchMoviesAndTv(query)
             .then(mergedList => {
                 setMovies(mergedList);
             })
             .catch(err => {
-                setError(err.message);
+                setSearchError(err.message);
             })
             .finally(() => {
-                setIsLoading(false);
+                setIsSearchingLoading(false);
             });
 
     }, [query]);
 
-    return { movies, isLoading, error };
+    return { searchMovies, isSearchingLoading, searchError };
 }
 
 export default useSearchMovies;

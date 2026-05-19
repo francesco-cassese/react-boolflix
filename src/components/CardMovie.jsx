@@ -1,27 +1,27 @@
 import langToCountry from "../utils/languageMap";
 import styles from "./CardMovie.module.css";
 
-function CardMovie({ movie }) {
+function CardMovie({ movie: item }) {
 
-    const country = langToCountry(movie.originalLanguage);
+    const country = langToCountry(item.originalLanguage);
 
     return (
         <div className="card h-100">
-            <h1>{movie.title}</h1>
+            <h1>{item.title}</h1>
             <img
-                src={`https://image.tmdb.org/t/p/w342${movie.poster}`}
-                alt={movie.title}
+                src={`https://image.tmdb.org/t/p/w342${item.poster}`}
+                alt={item.title}
             />
-            <h2>{movie.originalTitle}</h2>
+            <h2>{item.originalTitle}</h2>
             {country ? (<img
                 src={`https://flagcdn.com/${country}.svg`}
-                alt={movie.originalLanguage}
+                alt={item.originalLanguage}
                 className={styles.countryFlag}
             />) : (
-                <span>🌐{movie.originalLanguage}</span>
+                <span>🌐{item.originalLanguage}</span>
             )
             }
-            <span>{movie.rating}</span>
+            <span>{item.rating}</span>
         </div >
     )
 }

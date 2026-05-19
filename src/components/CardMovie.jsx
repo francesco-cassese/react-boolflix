@@ -1,11 +1,22 @@
 import langToCountry from "../utils/languageMap";
 import styles from "./CardMovie.module.css";
 import { BsStarFill, BsStarHalf, BsStar } from "react-icons/bs";
+import { useState } from "react";
 
 function CardMovie({ movie, variant = "full" }) {
 
-    const isPreview = variant === "compact"
+    const [open, setOpen] = useState(false);
+
+    const isHome = variant === "home"
     const isSearch = variant === "search"
+
+    function handleClick() {
+        if (isSearch) {
+            setOpen(!open);
+        }
+    }
+
+
 
     const country = langToCountry(movie.originalLanguage);
 
@@ -23,7 +34,7 @@ function CardMovie({ movie, variant = "full" }) {
     }
 
     return (
-        <div className={`card position-relative h-100 mt-5  ${styles.card}`} >
+        <div className={`card position-relative h-100 mt-5  ${styles.card}`} onClick={handleClick} >
             <span className={`badge position-absolute top-0 end-0 ${movie.type === 'movie' ? 'bg-success' : 'bg-danger'}`}>{movie.type}</span>
             <img
                 src={
@@ -35,12 +46,12 @@ function CardMovie({ movie, variant = "full" }) {
                 className={styles.cardImg}
             />
             {isSearch && (
-                <div className="card-name">
-                    <h6>{movie.originalTitle}</h6>
+                <div className={styles.back}>
+                    <h6 className={styles.cardTitle}>{movie.originalTitle}</h6>
                 </div>
             )}
-            {!isPreview && !isSearch && (
-                <div className="d-flex flex-column">
+            {isSearch && open && (
+                <div className={styles.info}>
                     {
                         country ? (<img
                             src={`https://flagcdn.com/${country}.svg`}

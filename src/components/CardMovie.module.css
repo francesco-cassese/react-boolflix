@@ -1,5 +1,6 @@
 .countryFlag {
-    width: 30px;
+    width: 40px;
+    border-radius: 4px;
 }
 
 .card {
@@ -10,8 +11,9 @@
     border: 2px solid black;
     border-radius: 6px;
     cursor: pointer;
-    transition: transform 0.3s ease;
+    transition: transform 0.4s ease;
     scroll-snap-align: start;
+    border: none;
 }
 
 .card:hover {
@@ -22,4 +24,28 @@
     height: 100%;
     display: block;
     object-fit: cover;
+}
+
+.cardTitle {
+    font-size: 0.9rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.back {
+    padding: 8px 4px;
+    text-align: center;
+}
+
+.info {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
 }

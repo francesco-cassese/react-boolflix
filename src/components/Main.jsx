@@ -3,32 +3,31 @@ import { MovieContext } from "../contexts/MovieContext";
 import useSearchMovies from "../hooks/useSearchMovies";
 import CardMovie from "./CardMovie";
 import Loader from "./Loader";
-import useFetch from "../hooks/useFetch";
-import useTrendingMovies from "../hooks/useTrendingMovies";
+import usePopularMovies from "../hooks/usePopularMovies";
 
 
 function Main() {
     const { query } = useContext(MovieContext);
 
-    const { movies, isLoading, error } = useSearchMovies(query);
-    const { trendingMovies } = useTrendingMovies();
+    const { searchMovies, isSearchingLoading, searchError } = useSearchMovies(query);
+    const { popularMovies, isPopularLoading, popularError } = usePopularMovies();
 
-    const moviesToShow = query ? movies : trendingMovies;
+    const moviesToShow = query ? searchMovies : popularMovies;
 
-    if (error) {
+    if (searchError || popularError) {
         return <p>Si è verificato un errore!</p>;
     }
 
     return (
         <section>
             <h1>
-                {query ? "Film trovati" : "Film di tendenza"}
+                {query ? "Film trovati" : "Film popolari"}
             </h1>
             <div className="container d-flex overflow-x-auto gap-3 py-3">
-                {isLoading ? (
+                {isSearchingLoading || isPopularLoading ? (
                     <Loader />
                 ) : (
-                    moviesToShow.map(item => (
+                    moviesToShow?.map(item => (
                         <article key={item.id}>
                             <CardMovie movie={item} />
                         </article>

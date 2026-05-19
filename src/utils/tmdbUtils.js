@@ -56,6 +56,14 @@ const getPopularMovies = () => {
         });
 };
 
+const getTrendingMovies = () => {
+    return fetchTmdb('/trending/movie/week')
+        .then(data => {
+            const results = data.results ?? [];
+            return results.map(item => mapMediaItem(item, "movie"))
+        })
+}
+
 const searchMoviesAndTv = query => {
     const moviesPromise = fetchTmdb('/search/movie', { query })
         .then(data => {
@@ -75,4 +83,4 @@ const searchMoviesAndTv = query => {
         });
 };
 
-export { searchMoviesAndTv, getPopularMovies };
+export { searchMoviesAndTv, getPopularMovies, getTrendingMovies };

@@ -8,11 +8,12 @@
     background-color: #141414;
     color: white;
     border-radius: 6px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
 }
 
 .card:hover {
     transform: scale(1.03);
-    transition: 0.2s ease;
     z-index: 10;
 }
 

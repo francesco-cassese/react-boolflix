@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { MovieContext } from "../contexts/MovieContext";
 import useSearchMovies from "../hooks/useSearchMovies";
 import usePopularMovies from "../hooks/usePopularMovies";
+import useTrendingMovies from "../hooks/useTrendingMovies";
 import Loader from "./Loader";
 import MovieRow from "./MovieRow";
 import styles from "./Main.module.css"
@@ -12,6 +13,7 @@ function Main() {
 
     const { searchMovies, isSearchingLoading, searchError } = useSearchMovies(query);
     const { popularMovies, isPopularLoading, popularError } = usePopularMovies();
+    const { trendingMovies, isTrendingLoading, trendingError } = useTrendingMovies();
 
     const isLoading = isSearchingLoading || isPopularLoading;
     const isError = searchError || popularError;

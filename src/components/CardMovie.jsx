@@ -45,6 +45,16 @@ function CardMovie({ movie, variant = "full" }) {
                 alt={movie.title}
                 className={styles.cardImg}
             />
+            <div className="position-absolute start-5 bottom-0">
+                {
+                    country ? (<img
+                        src={`https://flagcdn.com/${country}.svg`}
+                        alt={movie.originalLanguage}
+                        className={styles.countryFlag}
+                    />) : (
+                        <span>🌐{movie.originalLanguage}</span>
+                    )}
+            </div>
             {isSearch && (
                 <div className={styles.back}>
                     <h6 className={styles.cardTitle}>{movie.originalTitle}</h6>
@@ -52,16 +62,7 @@ function CardMovie({ movie, variant = "full" }) {
             )}
             {isSearch && open && (
                 <div className={styles.info}>
-                    {
-                        country ? (<img
-                            src={`https://flagcdn.com/${country}.svg`}
-                            alt={movie.originalLanguage}
-                            className={styles.countryFlag}
-                        />) : (
-                            <span>🌐{movie.originalLanguage}</span>
-                        )
-                    }
-                    <div className="d-flex gap-1 fs-4 text-warning mt-2 flex-shrink-0">
+                    <div className="d-flex gap-1 fs-4 text-warning mt-2 ">
                         <div className="d-flex gap-1 fs-4 mt-2">
                             {stars(movie.rating ?? 0).map((type, i) => {
                                 if (type === "full") return <BsStarFill key={i} color="gold" />;

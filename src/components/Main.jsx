@@ -16,8 +16,8 @@ function Main() {
     const { popularMovies, isPopularLoading, popularError } = usePopularMovies();
     const { trendingMovies, isTrendingLoading, trendingError } = useTrendingMovies();
 
-    const isLoading = isSearchingLoading || isPopularLoading;
-    const isError = searchError || popularError;
+    const isLoading = isSearchingLoading || isPopularLoading || isTrendingLoading;
+    const isError = searchError || popularError || trendingError;
 
     if (isError) {
         return <p className="text-danger container py-3">Errore!</p>;
@@ -51,7 +51,13 @@ function Main() {
                 ) : (
                     <>
                         <MovieRow
-                            title="Film Popolari"
+                            title="Trend del momento"
+                            movies={trendingMovies}
+                            variant="compact" />
+
+
+                        <MovieRow
+                            title="I più visti"
                             movies={popularMovies}
                             variant="compact" />
                     </>

@@ -3,9 +3,9 @@ import Loader from "../components/Loader";
 import useMovieDetail from "../hooks/useMovieDetail";
 import { getTmdbImage } from "../utils/tmdbUtils";
 import styles from "./MovieDetail.module.css";
-import { BsStarFill, BsStar } from "react-icons/bs";
-import { BsCalendarEvent } from "react-icons/bs";
+import { BsStarFill, BsCalendarEvent } from "react-icons/bs";
 import { FiTrendingUp } from "react-icons/fi";
+import langToCountry from "../utils/languageMap";
 
 function MovieDetail() {
     const { id } = useParams();
@@ -46,7 +46,7 @@ function MovieDetail() {
                             <h2 className={styles.sectionTitle}>Dettagli</h2>
                             <div className="row">
                                 <div className="col-sm-6">
-                                    <p><strong>Lingua:</strong> {movie.original_language}</p>
+                                    <p><strong>Lingua:</strong> {langToCountry(movie.original_language)}</p>
                                     <p><strong>Voti:</strong> {movie.vote_count}</p>
                                 </div>
                                 <div className="col-sm-6">

@@ -1,5 +1,6 @@
 .headerLogo {
     width: 250px;
+    cursor: pointer;
 }
 
 .containerHeader {

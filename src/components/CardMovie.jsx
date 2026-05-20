@@ -1,11 +1,13 @@
 import langToCountry from "../utils/languageMap";
 import styles from "./CardMovie.module.css";
 import { BsStarFill, BsStarHalf, BsStar } from "react-icons/bs";
+import { useNavigate } from "react-router";
 
 function CardMovie({ movie, variant = "full", isOpen, onOpen }) {
 
     const isHome = variant === "home"
     const isSearch = variant === "search"
+    const navigate = useNavigate();
 
     function handleClick() {
         if (variant === "search") {
@@ -96,10 +98,20 @@ function CardMovie({ movie, variant = "full", isOpen, onOpen }) {
                             <span>🌐 {movie.originalLanguage}</span>
                         )}
                     </div>
+                    <button
+                        className="btn btn-danger btn-sm mt-3"
+                        onClick={event => {
+                            event.stopPropagation();
+                            navigate(`/movie/${movie.id}`);
+                        }}
+                    >
+                        Vai al dettaglio
+                    </button>
 
                 </div>
-            )}
-        </div>
+            )
+            }
+        </div >
     )
 }
 export default CardMovie

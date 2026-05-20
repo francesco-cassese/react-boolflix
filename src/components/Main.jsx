@@ -39,11 +39,11 @@ function Main() {
                 </h1>
 
                 {query ? (
-                    <div className="row g-3">
+                    <div className="row">
                         {searchMovies?.map(movie => (
                             <div
                                 key={movie.id}
-                                className="col-12 col-md-4 col-lg-3 col-xl-2 mt-5"
+                                className="col-6 col-md-4 col-lg-3 col-xl-2 mt-5"
                             >
                                 <CardMovie
                                     movie={movie}

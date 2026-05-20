@@ -3,6 +3,9 @@ import Loader from "../components/Loader";
 import useMovieDetail from "../hooks/useMovieDetail";
 import { getTmdbImage } from "../utils/tmdbUtils";
 import styles from "./MovieDetail.module.css";
+import { BsStarFill, BsStar } from "react-icons/bs";
+import { BsCalendarEvent } from "react-icons/bs";
+import { FiTrendingUp } from "react-icons/fi";
 
 function MovieDetail() {
     const { id } = useParams();
@@ -21,9 +24,9 @@ function MovieDetail() {
                 <div className={`container ${styles.heroContent}`}>
                     <h1 className={styles.title}>{movie.title}</h1>
                     <div className={styles.meta}>
-                        <span> {movie.vote_average?.toFixed(1)}</span>
-                        <span> {movie.release_date}</span>
-                        <span> {Math.round(movie.popularity)}</span>
+                        <span><BsStarFill color="gold" /> {movie.vote_average?.toFixed(1)}</span>
+                        <span><BsCalendarEvent /> {movie.release_date}</span>
+                        <span><FiTrendingUp /> {Math.round(movie.popularity)}</span>
                     </div>
                 </div>
             </div>
@@ -36,11 +39,11 @@ function MovieDetail() {
                     </div>
                     <div className="col-md-8">
                         <div className={styles.section}>
-                            <h2 className={styles.sectionTitle}>Overview</h2>
+                            <h2 className={styles.sectionTitle}>Trama</h2>
                             <p className={styles.overview}>{movie.overview}</p>
                         </div>
                         <div className={styles.section}>
-                            <h2 className={styles.sectionTitle}>Details</h2>
+                            <h2 className={styles.sectionTitle}>Dettagli</h2>
                             <div className="row">
                                 <div className="col-sm-6">
                                     <p><strong>Lingua:</strong> {movie.original_language}</p>

@@ -1,109 +1,38 @@
-.detailPage {
-    min-height: 100vh;
-    background-color: #141414;
-    color: #ffffff;
+.page {
+    padding: 40px 0;
+    color: white;
 }
 
-.hero {
-    position: relative;
-    height: 70vh;
-    overflow: hidden;
+.header {
     display: flex;
-    align-items: flex-end;
-}
-
-.backdrop {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.5));
-}
-
-.heroContent {
-    position: relative;
-    z-index: 2;
-    padding-bottom: 48px;
-    padding-left: 20px;
-    padding-right: 20px;
-}
-
-.title {
-    font-size: 64px;
-    font-weight: 700;
-    margin-bottom: 8px;
-}
-
-.meta {
-    display: flex;
-    gap: 24px;
-    flex-wrap: wrap;
-    color: #d1d1d1;
-    font-size: 16px;
-}
-
-.content {
-    padding-top: 48px;
-    padding-bottom: 48px;
+    gap: 30px;
+    align-items: flex-start;
 }
 
 .poster {
-    width: 100%;
-    border-radius: 12px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    width: 300px;
+    border-radius: 10px;
 }
 
-.section {
+.info {
+    max-width: 700px;
+}
+
+.cast {
     margin-top: 40px;
 }
 
-.section:first-child {
-    margin-top: 0;
-}
-
-.sectionTitle {
-    margin-bottom: 16px;
-    font-size: 24px;
-    font-weight: 600;
-}
-
-.overview {
-    margin-bottom: 0;
-    color: #d1d1d1;
-    line-height: 26px;
-    font-size: 16px;
-}
-
-.castContainer {
+.castList {
     display: flex;
-    gap: 16px;
     overflow-x: auto;
-    padding-bottom: 8px;
 }
 
-.actorCard {
-    min-width: 120px;
+.actor {
+    min-width: 100px;
+    text-align: center;
 }
 
-.actorImage {
+.actor img {
     width: 100%;
     border-radius: 8px;
-}
-
-.actorName {
-    margin-top: 8px;
-    margin-bottom: 0;
-    font-size: 14px;
-    font-weight: 600;
-}
-
-.character {
-    color: #999999;
-    font-size: 12px;
 }

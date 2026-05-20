@@ -1,14 +1,11 @@
 import { useContext } from "react";
 import { MovieContext } from "../contexts/MovieContext";
 import useSearchMovies from "../hooks/useSearchMovies";
-import usePopularMovies from "../hooks/usePopularMovies";
-import useTrendingMovies from "../hooks/useTrendingMovies";
-import usePopularTv from "../hooks/usePopularTv";
+import useMovies from "../hooks/useMovies";
 import Loader from "./Loader";
 import MovieRow from "./MovieRow";
 import styles from "./Main.module.css"
 import CardMovie from "./CardMovie";
-import useNewMovies from "../hooks/useNewMovies";
 import { useState } from "react";
 
 
@@ -17,13 +14,10 @@ function Main() {
     const [openId, setOpenId] = useState(null);
 
     const { searchMovies, isSearchingLoading, searchError } = useSearchMovies(query);
-    const { popularMovies, isPopularLoading, popularError } = usePopularMovies();
-    const { trendingMovies, isTrendingLoading, trendingError } = useTrendingMovies();
-    const { newMovies, isNewLoading, newError } = useNewMovies();
-    const { popularTv, isPopularTvLoading, popularTvError } = usePopularTv()
+    const { popularMovies, popularTv, trendingMovies, newMovies, loading, error } = useMovies()
 
-    const isLoading = isSearchingLoading || isPopularLoading || isTrendingLoading;
-    const isError = searchError || popularError || trendingError;
+    const isError = searchError || error;
+    const isLoading = isSearchingLoading || loading;
 
     function handleToggleMovie(id) {
         setOpenId(prevId => (prevId === id ? null : id));

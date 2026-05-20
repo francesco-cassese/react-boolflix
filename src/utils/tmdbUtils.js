@@ -49,43 +49,20 @@ const mapMediaItem = (item, mediaType) => {
     };
 };
 
-const getPopularMovies = () => {
-    return fetchTmdb('/movie/popular')
+const fetchMediaMovies = (endpoint, mediaType) => {
+    return fetchTmdb(endpoint)
         .then(data => {
             const results = data.results ?? [];
-            return results.map(item => mapMediaItem(item, "movie"));
-        });
-};
-
-const getPopularTv = () => {
-    return fetchTmdb('/tv/popular')
-        .then(data => {
-            const results = data.results ?? [];
-            return results.map(item => mapMediaItem(item, "tv"));
-        });
-};
-
-
-const getTrendingMovies = () => {
-    return fetchTmdb('/trending/all/week')
-        .then(data => {
-            const results = data.results ?? [];
-            return results.map(item => mapMediaItem(item, item.media_type))
+            return results.map(item => mapMediaItem(item, mediaType ?? item.media_type));
         })
 }
 
-const getNewMovies = () => {
-    return fetchTmdb('/movie/now_playing')
-        .then(data => {
-            const results = data.results ?? [];
-            return results.map(item => mapMediaItem(item, 'movie'))
-        })
-}
 
 const searchMoviesAndTv = query => {
     const moviesPromise = fetchTmdb('/search/movie', { query })
         .then(data => {
             const results = data.results ?? [];
+
             return results.map(item => mapMediaItem(item, "movie"));
         });
 
@@ -101,4 +78,4 @@ const searchMoviesAndTv = query => {
         });
 };
 
-export { searchMoviesAndTv, getPopularMovies, getTrendingMovies, getNewMovies, getPopularTv };
+export { searchMoviesAndTv, fetchMediaMovies };

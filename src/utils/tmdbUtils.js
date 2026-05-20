@@ -83,4 +83,16 @@ const searchMoviesAndTv = query => {
         });
 };
 
-export { searchMoviesAndTv, fetchMediaMovies };
+const getMovieFullDetail = id => {
+    return Promise.all([
+        fetchTmdb(`/movie/${id}`),
+        fetchTmdb(`/movie/${id}/credits`)
+    ]).then(([movie, credits]) => {
+        return {
+            movie,
+            cast: credits.cast
+        };
+    });
+};
+
+export { searchMoviesAndTv, fetchMediaMovies, getMovieFullDetail, getTmdbImage };

@@ -1,0 +1,109 @@
+.detailPage {
+    min-height: 100vh;
+    background-color: #141414;
+    color: #ffffff;
+}
+
+.hero {
+    position: relative;
+    height: 70vh;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+}
+
+.backdrop {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.5));
+}
+
+.heroContent {
+    position: relative;
+    z-index: 2;
+    padding-bottom: 48px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.title {
+    font-size: 64px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.meta {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    color: #d1d1d1;
+    font-size: 16px;
+}
+
+.content {
+    padding-top: 48px;
+    padding-bottom: 48px;
+}
+
+.poster {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+.section {
+    margin-top: 40px;
+}
+
+.section:first-child {
+    margin-top: 0;
+}
+
+.sectionTitle {
+    margin-bottom: 16px;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.overview {
+    margin-bottom: 0;
+    color: #d1d1d1;
+    line-height: 26px;
+    font-size: 16px;
+}
+
+.castContainer {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+}
+
+.actorCard {
+    min-width: 120px;
+}
+
+.actorImage {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.actorName {
+    margin-top: 8px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.character {
+    color: #999999;
+    font-size: 12px;
+}

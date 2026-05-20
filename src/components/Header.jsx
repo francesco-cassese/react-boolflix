@@ -4,7 +4,7 @@ import styles from "./Header.module.css";
 function Header() {
 
     return (
-        <header className={`d-flex p-3 ${styles.containerHeader}`}>
+        <header className={`d-flex p-3 sticky-top ${styles.containerHeader}`}>
             <div className="container">
                 <div className='row align-items-center justify-content-between'>
                     <div className="col-12 col-md-6">

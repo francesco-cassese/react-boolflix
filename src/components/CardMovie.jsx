@@ -12,6 +12,8 @@ function CardMovie({ movie, variant = "full", isOpen, onOpen }) {
     function handleClick() {
         if (variant === "search") {
             onOpen();
+        } else {
+            navigate(`/movie/${movie.id}`);
         }
     }
 

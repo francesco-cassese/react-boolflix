@@ -21,9 +21,9 @@ function MovieDetail() {
                 <div className={`container ${styles.heroContent}`}>
                     <h1 className={styles.title}>{movie.title}</h1>
                     <div className={styles.meta}>
-                        <span>⭐ {movie.vote_average?.toFixed(1)}</span>
-                        <span>📅 {movie.release_date}</span>
-                        <span>🔥 {Math.round(movie.popularity)}</span>
+                        <span> {movie.vote_average?.toFixed(1)}</span>
+                        <span> {movie.release_date}</span>
+                        <span> {Math.round(movie.popularity)}</span>
                     </div>
                 </div>
             </div>

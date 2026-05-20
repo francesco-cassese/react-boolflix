@@ -37,7 +37,11 @@ function Main() {
                 <h1 className={`text-white mb-4 ${styles.pricipalTitle}`}>
                     {query ? "Risultati ricerca" : "Home"}
                 </h1>
-
+                {query && searchMovies.length === 0 && (
+                    <p className="text-white">
+                        OPS... <span className="fw-bold fs-5">{query}</span> non corrisponde a nessun titolo presente nei nostri server
+                    </p>
+                )}
                 {query ? (
                     <div className="row">
                         {searchMovies?.map(movie => (
@@ -78,7 +82,7 @@ function Main() {
                     </>
                 )}
             </div>
-        </section>
+        </section >
     );
 }
 

@@ -45,7 +45,12 @@ const mapMediaItem = (item, mediaType) => {
         rating: item.vote_average,
         originalLanguage: item.original_language,
         overview: item.overview,
-        type: mediaType
+        type: mediaType,
+        backdrop: item.backdrop_path,
+        releaseDate: item.release_date || item.first_air_date,
+        genreIds: item.genre_ids,
+        voteCount: item.vote_count,
+        popularity: item.popularity
     };
 };
 

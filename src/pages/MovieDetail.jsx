@@ -38,19 +38,20 @@ function MovieDetail() {
 
                 <div className="container">
                     <div className={` row ${styles.castList}`}>
-                        {cast.slice(0, 6).map(actor => (
-                            <div key={actor.id} className={`${styles.actor} col-8 col-md-4 col-lg-2 `}>
-                                <img
-                                    src={
-                                        actor.profile_path
-                                            ? getTmdbImage(actor.profile_path, "w185")
-                                            : "/placeholder.svg"
-                                    }
-                                    alt={actor.name}
-                                />
-                                <p>{actor.name}</p>
-                            </div>
-                        ))}
+                        {cast?.filter(actor => actor.order <= 5)
+                            .map(actor => (
+                                <div key={actor.id} className={`${styles.actor} col-8 col-md-4 col-lg-2 `}>
+                                    <img
+                                        src={
+                                            actor.profile_path
+                                                ? getTmdbImage(actor.profile_path, "w185")
+                                                : "/placeholder.svg"
+                                        }
+                                        alt={actor.name}
+                                    />
+                                    <p>{actor.name}</p>
+                                </div>
+                            ))}
                     </div>
                 </div>
 

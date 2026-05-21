@@ -55,7 +55,7 @@ const mapMediaItem = (item, mediaType) => {
 };
 
 const fetchMediaMovies = (endpoint, mediaType) => {
-    return fetchTmdb(endpoint)
+    return fetchTmdb(endpoint, params)
         .then(data => {
             const results = data.results ?? [];
             return results.map(item => mapMediaItem(item, mediaType ?? item.media_type));
@@ -64,18 +64,10 @@ const fetchMediaMovies = (endpoint, mediaType) => {
 
 
 const searchMoviesAndTv = query => {
-    const moviesPromise = fetchTmdb('/search/movie', { query })
-        .then(data => {
-            const results = data.results ?? [];
+    const params = { query };
 
-            return results.map(item => mapMediaItem(item, "movie"));
-        });
-
-    const tvPromise = fetchTmdb('/search/tv', { query })
-        .then(data => {
-            const results = data.results ?? [];
-            return results.map(item => mapMediaItem(item, "tv"));
-        });
+    const moviesPromise = fetchMediaMovies('/search/movie', 'movie', params);
+    const tvPromise = fetchMediaMovies('/search/tv', 'tv', params);
 
     return Promise.all([moviesPromise, tvPromise])
         .then(([moviesMapped, tvMapped]) => {

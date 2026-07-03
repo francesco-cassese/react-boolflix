@@ -15,14 +15,14 @@ function MovieDetail() {
     return (
         <div className={`container ${styles.page}`}>
 
-            <div className={styles.header}>
+            <div className={`d-flex flex-column flex-lg-row align-items-center align-items-lg-start gap-4 ${styles.header}`}>
                 <img
                     src={getTmdbImage(movie.poster_path, "w500")}
                     alt={movie.title}
-                    className={styles.poster}
+                    className={`img-fluid ${styles.poster}`}
                 />
 
-                <div className={styles.info}>
+                <div className={`w-100 ${styles.info}`}>
                     <h1>{movie.title}</h1>
 
                     <p>{movie.overview}</p>
@@ -37,10 +37,10 @@ function MovieDetail() {
                 <h3>Cast</h3>
 
                 <div className="container">
-                    <div className={` row ${styles.castList}`}>
+                    <div className={styles.castList}>
                         {cast?.filter(actor => actor.order <= 5)
                             .map(actor => (
-                                <div key={actor.id} className={`${styles.actor} col-8 col-md-4 col-lg-2 `}>
+                                <div key={actor.id} className={styles.actor}>
                                     <img
                                         src={
                                             actor.profile_path

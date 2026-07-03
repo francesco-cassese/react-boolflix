@@ -34,7 +34,7 @@ function Main() {
     return (
         <section className={`py-3 ${styles.containerMovies}`}>
             <div className="container">
-                <h1 className={`text-white mb-4 ${styles.pricipalTitle}`}>
+                <h1 className={`text-white mb-4 ${styles.principalTitle}`}>
                     {query ? "Risultati ricerca" : "Home"}
                 </h1>
                 {query && searchMovies.length === 0 && (
@@ -47,7 +47,7 @@ function Main() {
                         {searchMovies?.map(movie => (
                             <div
                                 key={movie.id}
-                                className="col-6 col-md-4 col-lg-3 col-xl-2 mt-5"
+                                className="col-6 col-md-4 col-lg-3 col-xl-2 mt-3 mt-md-4 mt-lg-5"
                             >
                                 <CardMovie
                                     movie={movie}

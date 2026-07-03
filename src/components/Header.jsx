@@ -11,8 +11,8 @@ function Header() {
         <header className={`d-flex p-3 sticky-top ${styles.containerHeader}`}>
             <div className="container">
                 <div className='row align-items-center justify-content-between'>
-                    <div className="col-12 col-md-6">
-                        <img src="/boolflix.png" alt="logo" className={styles.headerLogo} onClick={event => navigate('/')} />
+                    <div className="col-12 col-md-6 mb-3 mb-md-0">
+                        <img src="/boolflix.png" alt="logo" className={`img-fluid ${styles.headerLogo}`} onClick={event => navigate('/')} />
                     </div>
                     <div className="col-12 col-md-6 col-lg-4">
                         <SearchBar />

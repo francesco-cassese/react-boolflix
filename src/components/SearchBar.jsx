@@ -33,7 +33,7 @@ function SearchBar() {
     };
 
     return (
-        <div className="me-5">
+        <div className="me-0 me-lg-5">
             <form onSubmit={handleMovieSearch}>
                 <div className={`input-group align-items-center ${styles.searchBox}`}>
                     <label

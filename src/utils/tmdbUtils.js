@@ -54,7 +54,7 @@ const mapMediaItem = (item, mediaType) => {
     };
 };
 
-const fetchMediaMovies = (endpoint, mediaType) => {
+const fetchMediaMovies = (endpoint, mediaType, params) => {
     return fetchTmdb(endpoint, params)
         .then(data => {
             const results = data.results ?? [];

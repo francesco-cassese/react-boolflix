@@ -76,20 +76,21 @@
 }
 
 .open {
+    transform: scale(1.1);
     z-index: 100;
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
 }
 
-.scaleMobile {
-    transform: scale(1.1);
+@media (min-width: 768px) {
+    .open {
+        transform: scale(1.3);
+    }
 }
 
-.scaleTablet {
-    transform: scale(1.3);
-}
-
-.scaleDesktop {
-    transform: scale(1.5);
+@media (min-width: 992px) {
+    .open {
+        transform: scale(1.5);
+    }
 }
 
 .open .cardImg {

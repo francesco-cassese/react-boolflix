@@ -2,35 +2,12 @@ import langToCountry from "../utils/languageMap";
 import styles from "./CardMovie.module.css";
 import { BsStarFill, BsStarHalf, BsStar } from "react-icons/bs";
 import { useNavigate } from "react-router";
-import { useState, useEffect } from "react";
-
-function getScaleClass(styles) {
-    if (window.matchMedia("(min-width: 992px)").matches) return styles.scaleDesktop;
-    if (window.matchMedia("(min-width: 768px)").matches) return styles.scaleTablet;
-    return styles.scaleMobile;
-}
 
 function CardMovie({ movie, variant = "full", isOpen, onOpen }) {
 
     const isHome = variant === "home"
     const isSearch = variant === "search"
     const navigate = useNavigate();
-
-    const [scaleClass, setScaleClass] = useState(() => getScaleClass(styles));
-
-    useEffect(() => {
-        const tabletQuery = window.matchMedia("(min-width: 768px)");
-        const desktopQuery = window.matchMedia("(min-width: 992px)");
-        const handleChange = () => setScaleClass(getScaleClass(styles));
-
-        tabletQuery.addEventListener("change", handleChange);
-        desktopQuery.addEventListener("change", handleChange);
-
-        return () => {
-            tabletQuery.removeEventListener("change", handleChange);
-            desktopQuery.removeEventListener("change", handleChange);
-        };
-    }, []);
 
     function handleClick() {
         if (variant === "search") {
@@ -56,7 +33,7 @@ function CardMovie({ movie, variant = "full", isOpen, onOpen }) {
     }
 
     return (
-        <div className={`card position-relative h-100  ${styles.card} ${isOpen ? `${styles.open} ${scaleClass}` : ""}`} onClick={handleClick} >
+        <div className={`card position-relative h-100  ${styles.card} ${isOpen ? styles.open : ""}`} onClick={handleClick} >
             <span className={`badge position-absolute top-0 end-0 ${movie.type === 'movie' ? 'bg-success' : 'bg-danger'}`}>{movie.type}</span>
             <img
                 src={

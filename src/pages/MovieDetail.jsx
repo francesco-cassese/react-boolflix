@@ -3,9 +3,11 @@ import Loader from "../components/Loader";
 import useMovieDetail from "../hooks/useMovieDetail";
 import { getTmdbImage } from "../utils/tmdbUtils";
 import styles from "./MovieDetail.module.css";
+import { useNavigate } from "react-router";
 
 function MovieDetail() {
     const { id } = useParams();
+    const navigate = useNavigate();
     const { movie, cast, loading, error } = useMovieDetail(id);
 
     if (loading) return <Loader />;
@@ -14,6 +16,14 @@ function MovieDetail() {
 
     return (
         <div className={`container ${styles.page}`}>
+
+            <button
+                className="btn btn-secondary my-3"
+                onClick={() => navigate(-1)}
+            >
+                Torna indietro
+            </button>
+
 
             <div className={`d-flex flex-column flex-lg-row align-items-center align-items-lg-start gap-4 ${styles.header}`}>
                 <img
@@ -29,7 +39,7 @@ function MovieDetail() {
 
                     <p><strong>Data:</strong> {movie.release_date}</p>
                     <p><strong>Lingua:</strong> {movie.original_language}</p>
-                    <p><strong>Voto:</strong> {movie.vote_average}</p>
+                    <p><strong>Voto:</strong> {movie.vote_average ? Math.round(movie.vote_average) : "N/D"}</p>
                 </div>
             </div>
 
